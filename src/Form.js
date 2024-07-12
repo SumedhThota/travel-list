@@ -1,13 +1,9 @@
 import {useState} from "react"
-import App from "./App"
 
 export default function Form({onAddItems}){
     const [quantity, setQuantity] = useState(1)
     const [description, setDescription] = useState('')
     
-
-    
-
     function handleSubmit(e){
         e.preventDefault()
         if(!description) return
