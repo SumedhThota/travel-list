@@ -16,11 +16,15 @@ function App() {
   function handleToggleItem(id){
     setItems((items)=>items.map(item=>item.id === id? {...item, packed: !item.packed}: item))
   }
+  function handleClearList(){
+    const confirmed = window.confirm('Do you want to delete all items?')
+    if(confirmed) setItems([])
+  }
   return (
     <div className="App">
       <Logo />
       <Form onAddItems={handleAddItems}/>
-      <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem}/>
+      <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} onClearList={handleClearList}/>
       <Stats items={items}/>
     </div>
   );
